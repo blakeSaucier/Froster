@@ -15,6 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="ErrorHandlers.fs" />
+    <Compile Include="Models.fs" />
+    <Compile Include="Views.fs" />
+    <Compile Include="HttpHandlers.fs" />
+    <Compile Include="Routing.fs" />
     <Content Include="launchSettings.json" />
     <Compile Include="Program.fs" />
   </ItemGroup>
@@ -24,8 +29,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
-  <ItemGroup />
 
 
 </Project>
