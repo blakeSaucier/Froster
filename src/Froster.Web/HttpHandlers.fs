@@ -3,6 +3,7 @@
 open Models
 open Views
 open Giraffe
+open Froster.Application.GetPlayers
 
 let indexHandler (name : string) =
     let greetings = sprintf "Hello %s, from Giraffe!" name
@@ -10,8 +11,7 @@ let indexHandler (name : string) =
     let view      = index model
     htmlView view
 
-let weatherHandler = [
-    { Temperature = 8; Conditions = "Rain" };
-    { Temperature = 10; Conditions = "Rain Showers" };
-    { Temperature = 10; Conditions = "Rain" };
-]
+let playersHandler =
+    let players = getPlayers
+    players
+

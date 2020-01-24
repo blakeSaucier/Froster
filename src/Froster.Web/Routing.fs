@@ -9,6 +9,6 @@ let webApp: HttpFunc -> HttpFunc =
             choose [
                 route "/" >=> indexHandler "world"
                 routef "/hello/%s" indexHandler
-                route "/weather" >=> warbler(fun _ -> json weatherHandler)
+                route "/players" >=> json playersHandler
             ]
         setStatusCode 404 >=> text "Not Found" ]
