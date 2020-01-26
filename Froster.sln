@@ -7,9 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1921121D-DD3
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Froster.Web", "src\Froster.Web\Froster.Web.fsproj", "{7C3D5B86-8110-4607-AA4C-148484DB205C}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Froster.Domain", "src\Froster.Domain\Froster.Domain.fsproj", "{A2BB70B6-F513-4356-8141-D78D92783A5D}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Froster.Domain", "src\Froster.Domain\Froster.Domain.fsproj", "{A2BB70B6-F513-4356-8141-D78D92783A5D}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Froster.Application", "src\Froster.Application\Froster.Application.fsproj", "{8F1607F0-669B-4C0E-98E1-0765B3A69FDE}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Froster.Application", "src\Froster.Application\Froster.Application.fsproj", "{8F1607F0-669B-4C0E-98E1-0765B3A69FDE}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Froster.Infrastructure", "src\Infrastructure\Froster.Infrastructure.fsproj", "{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,18 @@ Global
 		{8F1607F0-669B-4C0E-98E1-0765B3A69FDE}.Release|x64.Build.0 = Release|Any CPU
 		{8F1607F0-669B-4C0E-98E1-0765B3A69FDE}.Release|x86.ActiveCfg = Release|Any CPU
 		{8F1607F0-669B-4C0E-98E1-0765B3A69FDE}.Release|x86.Build.0 = Release|Any CPU
+		{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}.Debug|x64.Build.0 = Debug|Any CPU
+		{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}.Debug|x86.Build.0 = Debug|Any CPU
+		{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}.Release|x64.ActiveCfg = Release|Any CPU
+		{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}.Release|x64.Build.0 = Release|Any CPU
+		{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}.Release|x86.ActiveCfg = Release|Any CPU
+		{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +79,7 @@ Global
 		{7C3D5B86-8110-4607-AA4C-148484DB205C} = {1921121D-DD36-43DA-AB42-DA3C7B100A2C}
 		{A2BB70B6-F513-4356-8141-D78D92783A5D} = {1921121D-DD36-43DA-AB42-DA3C7B100A2C}
 		{8F1607F0-669B-4C0E-98E1-0765B3A69FDE} = {1921121D-DD36-43DA-AB42-DA3C7B100A2C}
+		{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9} = {1921121D-DD36-43DA-AB42-DA3C7B100A2C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {65FF651B-F0DF-48B5-B9DA-A07D1D9912C4}

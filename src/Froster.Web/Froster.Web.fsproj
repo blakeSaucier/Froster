@@ -33,6 +33,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Froster.Application\Froster.Application.fsproj" />
     <ProjectReference Include="..\Froster.Domain\Froster.Domain.fsproj" />
+    <ProjectReference Include="..\Infrastructure\Froster.Infrastructure.fsproj" />
   </ItemGroup>
 
 

@@ -10,5 +10,6 @@ let webApp: HttpFunc -> HttpFunc =
                 route "/" >=> indexHandler "world"
                 routef "/hello/%s" indexHandler
                 route "/players" >=> json playersHandler
+                routef "/player/%i" playerHandler
             ]
         setStatusCode 404 >=> text "Not Found" ]
