@@ -3,8 +3,7 @@
 open Models
 open Views
 open Giraffe
-open Froster.Application
-open Froster.Infrastructure
+open Bootstrap
 
 let indexHandler (name : string) =
     let greetings = sprintf "Hello %s, from Giraffe!" name
@@ -12,12 +11,10 @@ let indexHandler (name : string) =
     let view      = index model
     htmlView view
 
-let playersHandler =
-    let players = GetPlayers.getPlayers PlayerRepository.fetchPlayers
-    players
+let playersHandler = getPlayers
 
 let playerHandler id =
-    let player = GetPlayer.getPlayer PlayerRepository.fetchPlayer id
+    let player = getPlayer id
     match player with
     | Some p -> json p
     | None -> setStatusCode 404
