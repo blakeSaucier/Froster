@@ -18,3 +18,7 @@ let playerHandler id =
     match player with
     | Some p -> json p
     | None -> setStatusCode 404
+
+let createPlayer createPlayerCommand =
+    let res = createPlayer createPlayerCommand
+    setStatusCode 200

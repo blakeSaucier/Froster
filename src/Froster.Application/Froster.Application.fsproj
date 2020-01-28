@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Players\Commands\CreatePlayerCommand.fs" />
+    <Compile Include="Players\Commands\CreatePlayer.fs" />
     <Compile Include="Players\Queries\GetPlayer.fs" />
     <Compile Include="Players\Queries\GetPlayers.fs" />
   </ItemGroup>
