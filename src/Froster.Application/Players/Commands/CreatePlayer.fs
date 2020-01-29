@@ -8,6 +8,4 @@ let private validatePlayer createPlayerCommand =
     | "" -> Error "Name is Empty"
     | _ -> Ok createPlayerCommand
 
-let createPlayer createPlayerCommand =
-    let validated = validatePlayer createPlayerCommand
-    validated |> ignore
+let createPlayer createPlayerCommand = validatePlayer createPlayerCommand

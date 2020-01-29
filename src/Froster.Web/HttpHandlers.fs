@@ -4,6 +4,8 @@ open Models
 open Views
 open Giraffe
 open Bootstrap
+open FSharp.Control.Tasks.V2
+open Froster.Application.CreatePlayer
 
 let indexHandler (name : string) =
     let greetings = sprintf "Hello %s, from Giraffe!" name
@@ -19,6 +21,13 @@ let playerHandler id =
     | Some p -> json p
     | None -> setStatusCode 404
 
-let createPlayer createPlayerCommand =
-    let res = createPlayer createPlayerCommand
-    setStatusCode 200
+let submitPlayer: HttpHandler = fun next context ->
+    task {
+        let! command = context.BindJsonAsync<CreatePlayerCommand>()
+        let result = createPlayer command
+        let response =
+            match result with
+            | Ok _ -> Successful.OK ()
+            | Error e -> RequestErrors.BAD_REQUEST e
+        return! response next context
+    }
