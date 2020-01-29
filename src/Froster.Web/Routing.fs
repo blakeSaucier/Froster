@@ -2,6 +2,7 @@
 
 open Giraffe
 open HttpHandlers
+open Froster.Application.CreatePlayer
 
 let webApp: HttpFunc -> HttpFunc =
     choose [
@@ -12,5 +13,5 @@ let webApp: HttpFunc -> HttpFunc =
                 route "/players" >=> json playersHandler
                 routef "/player/%i" playerHandler
             ]
-        POST >=> route "/player" >=> submitPlayer
+        POST >=> route "/player" >=> bindModel<CreatePlayerCommand> None submitPlayer
         setStatusCode 404 >=> text "Not Found" ]
