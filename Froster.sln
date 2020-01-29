@@ -11,7 +11,12 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Froster.Domain", "src\Frost
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Froster.Application", "src\Froster.Application\Froster.Application.fsproj", "{8F1607F0-669B-4C0E-98E1-0765B3A69FDE}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Froster.Infrastructure", "src\Infrastructure\Froster.Infrastructure.fsproj", "{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Froster.Infrastructure", "src\Infrastructure\Froster.Infrastructure.fsproj", "{22C9EA3B-47EB-4603-8ED1-8D82FA7104A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4ED995A0-F535-45D0-ADCA-38F1B8B1E32F}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
