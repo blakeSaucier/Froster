@@ -2,28 +2,17 @@
 
 open System
 
-type Position =
-    | Defense
-    | LeftWing
-    | RightWing
-    | Center
-
 type JerseyNumber = int
-
-type PlayerStatus =
-    | Fulltime
-    | Spare
-    | Unavailable
 
 type Player =
     {
         Id: int
         FirstName: string
         LastName: string
-        Position: Position
+        Position: string option
         Number: JerseyNumber
         PhoneNumber: string
-        Status: PlayerStatus 
+        Status: string 
     }
 
 type Game =

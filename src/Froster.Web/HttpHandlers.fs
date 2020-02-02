@@ -17,7 +17,7 @@ let playerHandler id =
     let player = getPlayer id
     match player with
     | Some p -> json p
-    | None -> RequestErrors.notFound (json "an error")
+    | None -> RequestErrors.notFound (json None)
 
 let submitPlayer createPlayerCommand =
     let result = createPlayer createPlayerCommand
