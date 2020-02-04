@@ -1,6 +1,7 @@
 ﻿module CreatePlayer
 
-open Froster.Application.CreatePlayer
+open Froster.Application.Common
+open Froster.Application.Interfaces
 
 let private validatePlayer createPlayerCommand =
     match createPlayerCommand.FirstName with
@@ -8,4 +9,7 @@ let private validatePlayer createPlayerCommand =
     | "" -> Error "Name is Empty"
     | _ -> Ok createPlayerCommand
 
-let createPlayer createPlayerCommand = validatePlayer createPlayerCommand
+let createPlayer (writePlayer:WritePlayer) createPlayerCommand = 
+    let validated = validatePlayer createPlayerCommand
+    validated |> Result.map writePlayer
+

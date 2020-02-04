@@ -1,11 +1,11 @@
-﻿module Froster.Application.CreatePlayer
+﻿module Froster.Application.Common
 
 type CreatePlayerCommand =
     {
         FirstName: string
         LastName: string
         Position: string
-        Number: int
+        JerseyNumber: int
         PhoneNumber: string
         Status: string
     }

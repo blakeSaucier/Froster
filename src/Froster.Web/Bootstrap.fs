@@ -8,8 +8,9 @@ let connString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\J
 // Persistence Dependencies
 let fetchPlayerImplementation = Sql.PlayerRepository.fetchPlayer connString
 let fetchPlayersImplementation = Sql.PlayerRepository.fetchPlayers connString
+let writePlayerImplementation = Sql.PlayerRepository.writePlayer connString
 
 // Application Dependencies
 let getPlayer = GetPlayer.getPlayer fetchPlayerImplementation
 let getPlayers = GetPlayers.getPlayers fetchPlayersImplementation
-let createPlayer = CreatePlayer.createPlayer
+let createPlayer = CreatePlayer.createPlayer writePlayerImplementation

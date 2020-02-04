@@ -3,6 +3,7 @@
 open Froster.Domain
 open FSharp.Data
 open CompileTimeConnection
+open Froster.Application.Common
 
 type private FindOnePlayer = SqlCommandProvider<"
     SELECT *
@@ -13,6 +14,11 @@ type private FindOnePlayer = SqlCommandProvider<"
 type private AllPlayers = SqlCommandProvider<"
     SELECT *
     FROM Players
+    ", connectionString>
+
+type private InsertPlayer = SqlCommandProvider<"
+    INSERT INTO Players (FirstName, LastName, Position, PhoneNumber, JerseyNumber, Status)
+    VALUES (@FirstName, @LastName, @Position, @PhoneNumber, @JerseyNumber, @Status)
     ", connectionString>
 
 let private mapRecord (record:FindOnePlayer.Record) =
@@ -51,3 +57,15 @@ let fetchPlayers (connection:string) () =
     use cmd = new AllPlayers(connection)
     let res = cmd.Execute () |> Seq.toList
     res |> List.map mapAllPlayersRecord
+
+let writePlayer (connection:string) (newPlayer:CreatePlayerCommand) =
+    use cmd = new InsertPlayer(connection)
+    let { 
+        CreatePlayerCommand.FirstName = first
+        LastName = last
+        Position = position
+        JerseyNumber = jerseyNumber
+        PhoneNumber = phoneNumber
+        Status = status
+        } = newPlayer
+    cmd.Execute(first, last, position, phoneNumber, jerseyNumber, status) |> ignore
