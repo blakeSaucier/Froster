@@ -2,9 +2,7 @@
 
 open Froster.Domain
 open FSharp.Data
-
-[<Literal>]
-let private connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\James\Documents\Froster.mdf;Integrated Security=True;Connect Timeout=30"
+open CompileTimeConnection
 
 type private FindOnePlayer = SqlCommandProvider<"
     SELECT *
@@ -44,13 +42,12 @@ let private mapSingle (records:FindOnePlayer.Record list) =
     | None -> None
     | Some playerRecord -> mapRecord playerRecord |> Some
 
-let fetchPlayer:FetchPlayer = fun id ->
-    let connStr = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\James\Documents\Froster.mdf;Integrated Security=True;Connect Timeout=30"
-    use cmd = new FindOnePlayer(connStr)
+let fetchPlayer (connection:string) id =
+    use cmd = new FindOnePlayer(connection)
     let records = cmd.Execute(id) |> Seq.toList
     mapSingle records
 
-let fetchPlayers:FetchPlayers = fun () ->
-    use cmd = new AllPlayers(connectionString)
+let fetchPlayers (connection:string) () =
+    use cmd = new AllPlayers(connection)
     let res = cmd.Execute () |> Seq.toList
     res |> List.map mapAllPlayersRecord

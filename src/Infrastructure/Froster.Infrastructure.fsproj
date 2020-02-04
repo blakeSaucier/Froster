@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Data\Sql\CompileTimeConnection.fs" />
     <Compile Include="Data\Sql\PlayerRepository.fs" />
     <Compile Include="Data\Data.fs" />
     <Compile Include="Data\PlayerRepository.fs" />
@@ -15,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Froster.Application\Froster.Application.fsproj" />
     <ProjectReference Include="..\Froster.Domain\Froster.Domain.fsproj" />
   </ItemGroup>
 

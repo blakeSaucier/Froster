@@ -22,6 +22,3 @@ type Game =
         StartTimeUtc: DateTime
         Description: string
     }
-
-type FetchPlayers = unit -> Player list
-type FetchPlayer = int -> Player option

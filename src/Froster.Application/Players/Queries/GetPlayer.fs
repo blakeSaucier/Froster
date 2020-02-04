@@ -1,6 +1,6 @@
 ﻿module Froster.Application.GetPlayer
 
-open Froster.Domain
+open Froster.Application.Interfaces
 
 let getPlayer (fetchPlayer: FetchPlayer) playerId =
     let player = fetchPlayer playerId
