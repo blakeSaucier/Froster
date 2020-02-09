@@ -2,8 +2,10 @@
 
 open Froster.Application
 open Froster.Infrastructure
+open FSharp.Data
 
-let connString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\James\Documents\Froster.mdf;Integrated Security=True;Connect Timeout=30"
+type AppSettings = JsonProvider<"./appSettings.json">
+let connString = AppSettings.GetSample().ConnectionString
 
 // Persistence Dependencies
 let fetchPlayerImplementation = Sql.PlayerRepository.fetchPlayer connString

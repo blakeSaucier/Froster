@@ -9,12 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FSharp.Data" Version="3.3.3" />
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.*" />
     <PackageReference Include="Giraffe" Version="3.4.*" />
     <PackageReference Include="TaskBuilder.fs" Version="2.1.*" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="appSettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Compile Include="ErrorHandlers.fs" />
     <Compile Include="Models.fs" />
     <Compile Include="Views.fs" />
