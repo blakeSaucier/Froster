@@ -2,7 +2,7 @@
 
 open Giraffe
 open HttpHandlers
-open Froster.Application.Common
+open Froster.Application.Common.Requests
 
 let webApp: HttpFunc -> HttpFunc =
     choose [

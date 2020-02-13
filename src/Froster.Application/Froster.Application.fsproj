@@ -5,11 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Common\CreatePlayerCommand.fs" />
+    <Compile Include="Common\Requests.fs" />
     <Compile Include="Common\Interfaces.fs" />
-    <Compile Include="Players\Commands\CreatePlayer.fs" />
     <Compile Include="Players\Queries\GetPlayer.fs" />
     <Compile Include="Players\Queries\GetPlayers.fs" />
+    <Compile Include="Players\Commands\UpdatePlayer.fs" />
+    <Compile Include="Players\Commands\CreatePlayer.fs" />
   </ItemGroup>
 
   <ItemGroup>

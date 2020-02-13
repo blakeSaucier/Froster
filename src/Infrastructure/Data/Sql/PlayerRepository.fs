@@ -3,7 +3,7 @@
 open Froster.Domain
 open FSharp.Data
 open CompileTimeConnection
-open Froster.Application.Common
+open Froster.Application.Common.Requests
 
 type private FindOnePlayer = SqlCommandProvider<"
     SELECT *
