@@ -1,4 +1,4 @@
-﻿module Bootstrap
+﻿module Players.Bootstrap
 
 open FSharp.Data
 open Froster.Application.Players.Queries

@@ -1,17 +1,12 @@
 ﻿module Routing
 
 open Giraffe
-open HttpHandlers
-open Froster.Application.Players.Requests
+open Index.Routes
+open Players.Routes
 
 let webApp: HttpFunc -> HttpFunc =
     choose [
-        GET >=>
-            choose [
-                route "/" >=> indexHandler "world"
-                routef "/hello/%s" indexHandler
-                route "/players" >=> json playersHandler
-                routef "/player/%i" playerHandler
-            ]
-        POST >=> route "/player" >=> bindModel<CreatePlayerCommand> None submitPlayer
-        setStatusCode 404 >=> text "Not Found" ]
+        indexRoutes
+        playerRoutes
+        setStatusCode 404 >=> text "Not Found" 
+    ]

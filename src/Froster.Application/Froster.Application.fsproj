@@ -15,8 +15,4 @@
     <ProjectReference Include="..\Froster.Domain\Froster.Domain.fsproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
-
 </Project>

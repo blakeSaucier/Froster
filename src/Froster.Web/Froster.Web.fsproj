@@ -16,13 +16,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Players\Bootstrap.fs" />
+    <Compile Include="Players\Handlers.fs" />
+    <Compile Include="Players\Routes.fs" />
+    <Compile Include="Index\Models.fs" />
+    <Compile Include="Index\Views.fs" />
+    <Compile Include="Index\Routes.fs" />
     <Content Include="appSettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="ErrorHandlers.fs" />
-    <Compile Include="Models.fs" />
-    <Compile Include="Views.fs" />
-    <Compile Include="Bootstrap.fs" />
     <Compile Include="HttpHandlers.fs" />
     <Compile Include="Routing.fs" />
     <Content Include="launchSettings.json" />

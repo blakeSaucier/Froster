@@ -1,7 +1,7 @@
-﻿module HttpHandlers
+﻿module Players.Handlers
 
 open Giraffe
-open Players.Bootstrap
+open Bootstrap
 
 let playersHandler = getPlayers
 
