@@ -26,7 +26,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="ErrorHandlers.fs" />
-    <Compile Include="HttpHandlers.fs" />
     <Compile Include="Routing.fs" />
     <Content Include="launchSettings.json" />
     <Compile Include="Program.fs" />
