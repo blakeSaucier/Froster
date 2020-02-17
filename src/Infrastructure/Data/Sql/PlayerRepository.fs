@@ -3,7 +3,7 @@
 open Froster.Domain
 open FSharp.Data
 open CompileTimeConnection
-open Froster.Application.Common.Requests
+open Froster.Application.Players.Requests
 
 type private FindOnePlayer = SqlCommandProvider<"
     SELECT *
@@ -76,7 +76,7 @@ let writePlayer (connection:string) (newPlayer:CreatePlayerCommand) =
         } = newPlayer
     cmd.Execute(first, last, position, phoneNumber, jerseyNumber, status) |> ignore
 
-let updatePlayer (connection:string) command =
+let writePlayerUpdate (connection:string) command =
     use cmd = new UpdatePlayer(connection)
     cmd.Execute(
         command.FirstName,

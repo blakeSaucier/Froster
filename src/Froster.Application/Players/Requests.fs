@@ -1,4 +1,4 @@
-﻿module Froster.Application.Common.Requests
+﻿module Froster.Application.Players.Requests
 
 type CreatePlayerCommand =
     {

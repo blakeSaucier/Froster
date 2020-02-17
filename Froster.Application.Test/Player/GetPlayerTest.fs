@@ -2,7 +2,7 @@
 
 open NUnit.Framework
 open Froster.Domain
-open Froster.Application.GetPlayer
+open Froster.Application.Players.Queries
 open FsUnit
 
 let mockPlayer = 

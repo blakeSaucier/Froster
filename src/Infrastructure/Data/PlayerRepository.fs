@@ -1,7 +1,7 @@
 ﻿module Froster.Infrastructure.PlayerRepository
 
 open Froster.Infrastructure.Data
-open Froster.Application.Interfaces
+open Froster.Application.Players.Interfaces
 
 let fetchPlayer: FetchPlayer = fun id ->
     Map.tryFind id players

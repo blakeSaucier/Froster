@@ -1,20 +1,15 @@
 ﻿module Bootstrap
 
-open Froster.Application
-open Froster.Infrastructure
 open FSharp.Data
+open Froster.Application.Players.Queries
+open Froster.Application.Players.Commands
+open Froster.Infrastructure.Sql.PlayerRepository
 
 type AppSettings = JsonProvider<"./appSettings.json">
 let connString = AppSettings.GetSample().ConnectionString
 
-// Persistence Dependencies
-let fetchPlayerDb = Sql.PlayerRepository.fetchPlayer connString
-let fetchPlayersDb = Sql.PlayerRepository.fetchPlayers connString
-let writePlayerDb = Sql.PlayerRepository.writePlayer connString
-let updatePlayerDb = Sql.PlayerRepository.updatePlayer connString
-
 // Application Dependencies
-let getPlayer = GetPlayer.getPlayer fetchPlayerDb
-let getPlayers = GetPlayers.getPlayers fetchPlayersDb
-let createPlayer = CreatePlayer.createPlayer writePlayerDb 
-let updatePlayer = UpdatePlayer.updatePlayer updatePlayerDb getPlayer
+let getPlayer = getPlayer (fetchPlayer connString)
+let getPlayers = getPlayers (fetchPlayers connString)
+let createPlayer = createPlayer (writePlayer connString)
+let updatePlayer = updatePlayer (writePlayerUpdate connString) getPlayer

@@ -1,15 +1,14 @@
-﻿module Froster.Application.UpdatePlayer
+﻿module Froster.Application.Players.Commands
 
-open Froster.Application.Interfaces
-open Froster.Application.Common.Requests
 open System
+open Froster.Application.Players.Requests
+open Froster.Application.Players.Interfaces
 
 let private failIf condition message data =
     if condition then Error message else Ok data
 
 let private playerMustExist (getPlayer: FetchPlayer) updateCommand =
-    let player = getPlayer updateCommand.PlayerId
-    match player with
+    match getPlayer updateCommand.PlayerId with
     | Some _ -> Ok updateCommand
     | None -> Error "Player does not exist"
 
@@ -41,3 +40,16 @@ let updatePlayer (writeUpdate: WritePlayerUpdate) (getPlayer: FetchPlayer) updat
     |> playerMustExist getPlayer
     |> Result.bind validate
     |> Result.map writeUpdate
+
+let createPlayer (writePlayer: WritePlayer) (createPlayerCommand:CreatePlayerCommand) =
+    let jerseyGreaterThan0 = failIf (createPlayerCommand.JerseyNumber <= 0) "Invalid JerseyNumber"
+    let jerseyLessThan100 = failIf (createPlayerCommand.JerseyNumber >= 100) "Invalid JerseyNumber"
+    let nonEmptyName = failIf (String.IsNullOrWhiteSpace createPlayerCommand.FirstName) "Invalid First Name"
+    let atMost50Chars = failIf(createPlayerCommand.FirstName.Length > 50) "Invalid First Name"
+    
+    createPlayerCommand
+    |> jerseyGreaterThan0
+    |> Result.bind jerseyLessThan100
+    |> Result.bind nonEmptyName
+    |> Result.bind atMost50Chars
+    |> Result.map writePlayer

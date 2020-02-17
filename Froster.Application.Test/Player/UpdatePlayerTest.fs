@@ -3,8 +3,8 @@
 open NUnit.Framework
 open FsUnit
 open Froster.Domain
-open Froster.Application.Common.Requests
-open Froster.Application
+open Froster.Application.Players.Requests
+open Froster.Application.Players.Commands
 
 let mockPlayer = 
     {
@@ -47,7 +47,7 @@ let ``Player doesn't exist`` () =
     let fetchPlayer = fun _ -> None
     let writeUpdate = fun _ -> ()
     let expected = withError "Player does not exist"
-    let actual = UpdatePlayer.updatePlayer writeUpdate fetchPlayer mockRequest
+    let actual = updatePlayer writeUpdate fetchPlayer mockRequest
     actual |> should equal expected
 
 [<Test>]
@@ -55,7 +55,7 @@ let ``Should pass validations`` () =
     let fetchPlayer = fun _ -> Some mockPlayer
     let writeUpdate = fun _ -> ()
     let expected = ok
-    let result = UpdatePlayer.updatePlayer writeUpdate fetchPlayer mockRequest
+    let result = updatePlayer writeUpdate fetchPlayer mockRequest
     result |> should equal expected
 
 [<Test>]
@@ -63,5 +63,5 @@ let ``Should fail validations`` () =
     let fetchPlayer = fun _ -> Some mockPlayer
     let writeUpdate = fun _ -> ()
     let expected = withError "Invalid First Name"
-    let result = UpdatePlayer.updatePlayer writeUpdate fetchPlayer invalidRequest
+    let result = updatePlayer writeUpdate fetchPlayer invalidRequest
     result |> should equal expected

@@ -5,16 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Common\Requests.fs" />
-    <Compile Include="Common\Interfaces.fs" />
-    <Compile Include="Players\Queries\GetPlayer.fs" />
-    <Compile Include="Players\Queries\GetPlayers.fs" />
-    <Compile Include="Players\Commands\UpdatePlayer.fs" />
-    <Compile Include="Players\Commands\CreatePlayer.fs" />
+    <Compile Include="Players\Requests.fs" />
+    <Compile Include="Players\Interfaces.fs" />
+    <Compile Include="Players\Queries.fs" />
+    <Compile Include="Players\Commands.fs" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Froster.Domain\Froster.Domain.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\" />
   </ItemGroup>
 
 </Project>

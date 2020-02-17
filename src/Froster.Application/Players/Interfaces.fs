@@ -1,7 +1,7 @@
-﻿module Froster.Application.Interfaces
+﻿module Froster.Application.Players.Interfaces
 
 open Froster.Domain
-open Froster.Application.Common.Requests
+open Froster.Application.Players.Requests
 
 type FetchPlayers = unit -> Player list
 type FetchPlayer = int -> Player option
