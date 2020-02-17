@@ -8,11 +8,13 @@ type AppSettings = JsonProvider<"./appSettings.json">
 let connString = AppSettings.GetSample().ConnectionString
 
 // Persistence Dependencies
-let fetchPlayerImplementation = Sql.PlayerRepository.fetchPlayer connString
-let fetchPlayersImplementation = Sql.PlayerRepository.fetchPlayers connString
-let writePlayerImplementation = Sql.PlayerRepository.writePlayer connString
+let fetchPlayerDb = Sql.PlayerRepository.fetchPlayer connString
+let fetchPlayersDb = Sql.PlayerRepository.fetchPlayers connString
+let writePlayerDb = Sql.PlayerRepository.writePlayer connString
+let updatePlayerDb = Sql.PlayerRepository.updatePlayer connString
 
 // Application Dependencies
-let getPlayer = GetPlayer.getPlayer fetchPlayerImplementation
-let getPlayers = GetPlayers.getPlayers fetchPlayersImplementation
-let createPlayer = CreatePlayer.createPlayer writePlayerImplementation
+let getPlayer = GetPlayer.getPlayer fetchPlayerDb
+let getPlayers = GetPlayers.getPlayers fetchPlayersDb
+let createPlayer = CreatePlayer.createPlayer writePlayerDb 
+let updatePlayer = UpdatePlayer.updatePlayer updatePlayerDb getPlayer

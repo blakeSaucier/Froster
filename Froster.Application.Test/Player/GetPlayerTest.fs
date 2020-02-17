@@ -18,12 +18,12 @@ let mockPlayer =
 
 [<Test>]
 let ``Should Find Player`` () =
-    let fetchPlayer = fun (_: int) -> Some mockPlayer
+    let fetchPlayer = fun _ -> Some mockPlayer
     let result = getPlayer fetchPlayer 1
     result |> should equal (Some mockPlayer)
 
 [<Test>]
 let ``Should Not Find Player`` () =
-    let fetchPlayer = fun (_: int) -> None
+    let fetchPlayer = fun _ -> None
     let result = getPlayer fetchPlayer 1
     result |> should equal None

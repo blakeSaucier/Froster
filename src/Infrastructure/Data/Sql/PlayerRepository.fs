@@ -21,6 +21,12 @@ type private InsertPlayer = SqlCommandProvider<"
     VALUES (@FirstName, @LastName, @Position, @PhoneNumber, @JerseyNumber, @Status)
     ", connectionString>
 
+type private UpdatePlayer = SqlCommandProvider<"
+    Update Players
+    Set FirstName = @FirstName, LastName = @LastName, Position = @Position, JerseyNumber = @JerseyNumber, PhoneNumber = @PhoneNumber, Status = @Status
+    Where PlayerId = @PlayerId
+    ", connectionString>
+
 let private mapRecord (record:FindOnePlayer.Record) =
     {
         Id = record.PlayerId 
@@ -69,3 +75,15 @@ let writePlayer (connection:string) (newPlayer:CreatePlayerCommand) =
         Status = status
         } = newPlayer
     cmd.Execute(first, last, position, phoneNumber, jerseyNumber, status) |> ignore
+
+let updatePlayer (connection:string) command =
+    use cmd = new UpdatePlayer(connection)
+    cmd.Execute(
+        command.FirstName,
+        command.LastName,
+        command.Position,
+        command.JerseyNumber,
+        command.PhoneNumber,
+        command.Status,
+        command.PlayerId) |> ignore
+    
