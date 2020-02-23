@@ -15,6 +15,7 @@ let mockPlayer =
         PhoneNumber = "604503423"
         Number = 89
         Status = "FullTime"
+        TeamId = 1
     }
 
 let mockRequest = 

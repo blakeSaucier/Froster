@@ -20,7 +20,8 @@ type Player =
         Position: string option
         Number: JerseyNumber
         PhoneNumber: string
-        Status: string 
+        Status: string
+        TeamId: int 
     }
 
 type Game =
@@ -29,4 +30,19 @@ type Game =
         Location: string
         StartTimeUtc: DateTime
         Description: string
+        TeamId: int
+    }
+
+type AttendanceStatus =
+    | Confirmed
+    | Declined
+    | Unsure
+    | Unknown
+
+type Attendance =
+    {
+        AttendanceId: int
+        PlayerId: int
+        GameId: int
+        Status: AttendanceStatus
     }

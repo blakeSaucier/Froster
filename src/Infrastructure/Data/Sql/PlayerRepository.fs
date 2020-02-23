@@ -36,6 +36,7 @@ let private mapRecord (record:FindOnePlayer.Record) =
         Number= record.JerseyNumber
         PhoneNumber = record.PhoneNumber
         Status = record.Status
+        TeamId = record.TeamId
     }
 
 let private mapAllPlayersRecord (record:AllPlayers.Record) =
@@ -47,6 +48,7 @@ let private mapAllPlayersRecord (record:AllPlayers.Record) =
         Number= record.JerseyNumber
         PhoneNumber = record.PhoneNumber
         Status = record.Status
+        TeamId = record.TeamId
     }
 
 let private mapSingle (records:FindOnePlayer.Record list) =

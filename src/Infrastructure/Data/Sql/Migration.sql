@@ -18,8 +18,8 @@ CREATE TABLE [dbo].[Games]
 	[GameId] INT NOT NULL PRIMARY KEY,
     [TeamId] INT FOREIGN KEY REFERENCES Teams(TeamId),
     [StartTime] DATETIME NOT NULL,
-    [Location] NVARCHAR(50) NOT NULL,   
-    [Description] NVARCHAR(MAX) NULL
+    [Location] NVARCHAR(50) NOT NULL,
+    [Description] NVARCHAR(MAX) NULL,
 )
 
 GO
@@ -35,7 +35,7 @@ CREATE TABLE [dbo].[Players] (
     [JerseyNumber] INT            NOT NULL,
     [PhoneNumber]  NVARCHAR (MAX) NOT NULL,
     [Status]       NVARCHAR (MAX) NOT NULL,
-    [TeamId]       INT FOREIGN KEY REFERENCES Teams(TeamId)
+    [TeamId]       INT NOT NULL FOREIGN KEY REFERENCES Teams(TeamId)
     CONSTRAINT [PK_Players] PRIMARY KEY CLUSTERED ([PlayerId] ASC)
 );
 
