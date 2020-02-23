@@ -7,7 +7,7 @@ open FsUnit
 
 let mockPlayer = 
     {
-        Id = 1
+        PlayerId = 1
         FirstName = "James"
         LastName = "Saucier"
         Position = Some "Center"

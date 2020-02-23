@@ -4,9 +4,17 @@ open System
 
 type JerseyNumber = int
 
+type Team =
+    {
+        TeamId: int
+        TeamName: string
+        Location: string
+        TimeZone: TimeZoneInfo
+    }
+
 type Player =
     {
-        Id: int
+        PlayerId: int
         FirstName: string
         LastName: string
         Position: string option

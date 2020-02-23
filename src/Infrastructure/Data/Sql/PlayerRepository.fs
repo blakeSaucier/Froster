@@ -29,7 +29,7 @@ type private UpdatePlayer = SqlCommandProvider<"
 
 let private mapRecord (record:FindOnePlayer.Record) =
     {
-        Id = record.PlayerId 
+        PlayerId = record.PlayerId 
         FirstName = record.FirstName
         LastName = record.LastName
         Position = record.Position
@@ -40,7 +40,7 @@ let private mapRecord (record:FindOnePlayer.Record) =
 
 let private mapAllPlayersRecord (record:AllPlayers.Record) =
     {
-        Id = record.PlayerId 
+        PlayerId = record.PlayerId 
         FirstName = record.FirstName
         LastName = record.LastName
         Position = record.Position
