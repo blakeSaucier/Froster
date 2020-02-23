@@ -5,10 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Data\InMemory\Data.fs" />
+    <Compile Include="Data\InMemory\PlayerRepository.fs" />
     <Compile Include="Data\Sql\CompileTimeConnection.fs" />
     <Compile Include="Data\Sql\PlayerRepository.fs" />
-    <Compile Include="Data\Data.fs" />
-    <Compile Include="Data\PlayerRepository.fs" />
   </ItemGroup>
 
   <ItemGroup>
