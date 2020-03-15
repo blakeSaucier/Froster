@@ -2,14 +2,14 @@
 
 open Giraffe
 open Players.Handlers
-open Bootstrap
+open Web.Common
 
-let playerRoutes: HttpFunc -> HttpFunc =
+let playerRoutes handlers : Router =
     choose [
         GET >=>
             choose [
-                route "/players" >=> playersHandler getPlayers
-                routef "/players/%i" (playerHandler getPlayer)
+                route "/players" >=> handlers.GetPlayersHandler
+                routef "/players/%i" handlers.GetPlayerHandler
             ]
-        POST >=> route "/players" >=> submitPlayer createPlayer
+        POST >=> route "/players" >=> handlers.CreatePlayerHandler
     ]

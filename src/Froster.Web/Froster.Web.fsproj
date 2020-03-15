@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Common.fs" />
     <Compile Include="Players\Bootstrap.fs" />
     <Compile Include="Players\Handlers.fs" />
     <Compile Include="Players\Routes.fs" />
@@ -25,7 +26,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="ErrorHandlers.fs" />
-    <Compile Include="Routing.fs" />
+    <Compile Include="WebApp.fs" />
     <Content Include="launchSettings.json" />
     <Compile Include="Program.fs" />
   </ItemGroup>

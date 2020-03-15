@@ -1,6 +1,7 @@
 module TestBootstrap
 
 open Giraffe
+open Giraffe.Serialization.Json
 open System.Threading.Tasks
 open Microsoft.AspNetCore.Http
 open NSubstitute
@@ -17,6 +18,8 @@ let mockHttpContext (method:string) path =
     let context = initializeMockHttpContext ()
     context.Request.Method.ReturnsForAnyArgs method |> ignore
     context.Request.Path.ReturnsForAnyArgs (PathString(path)) |> ignore
+    context.RequestServices.GetService(typeof<IJsonSerializer>)
+        .Returns(NewtonsoftJsonSerializer(NewtonsoftJsonSerializer.DefaultSettings)) |> ignore
     context
 
 let getBody (ctx: HttpContext) =

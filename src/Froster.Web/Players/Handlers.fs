@@ -5,15 +5,21 @@ open Microsoft.AspNetCore.Http
 open FSharp.Control.Tasks.V2
 open Froster.Application.Players.Requests
 
-let playersHandler getPlayers: HttpHandler = json getPlayers
+type PlayerHandlers = {
+    GetPlayersHandler: HttpHandler
+    GetPlayerHandler: int -> HttpHandler
+    CreatePlayerHandler: HttpHandler
+}
 
-let playerHandler getPlayer playerId =
+let getPlayersHandler getPlayers: HttpHandler = json getPlayers
+
+let getPlayerHandler getPlayer playerId : HttpHandler =
     let player = getPlayer playerId
     match player with
     | Some p -> json p
     | None -> RequestErrors.notFound (json None)
 
-let submitPlayer createPlayer =
+let createPlayerHandler createPlayer : HttpHandler =
     fun (next: HttpFunc) (ctx: HttpContext) ->
         task {
             let! createPlayerCommand = ctx.BindModelAsync<CreatePlayerCommand>()

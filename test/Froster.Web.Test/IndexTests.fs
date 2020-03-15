@@ -5,12 +5,14 @@ open FSharp.Control.Tasks.V2
 open TestBootstrap
 open Index.Routes
 open FsUnit
+open Froster.Web.WebApp
 
 [<Fact>]
 let ``"/" should say 'Hello world'`` () =
     task {
         let mockContext = mockHttpContext "GET" "/"
-        let! result = indexRoutes next mockContext
+        let index = indexRoutes indexHandlers
+        let! result = index next mockContext
         match result with
         | Some ctx -> 
             getBody ctx |> should contain "Hello world"
@@ -21,7 +23,8 @@ let ``"/" should say 'Hello world'`` () =
 let ``"/hello/James" should say 'Hello James'`` () =
     task {
         let mockContext = mockHttpContext "GET" "/hello/James"
-        let! result = indexRoutes next mockContext
+        let index = indexRoutes indexHandlers
+        let! result = index next mockContext
         match result with
         | Some context ->
             getBody context |> should contain "Hello James"

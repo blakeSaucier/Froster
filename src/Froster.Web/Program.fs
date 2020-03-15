@@ -8,7 +8,7 @@ open Microsoft.AspNetCore.Hosting
 open Microsoft.Extensions.Logging
 open Microsoft.Extensions.DependencyInjection
 open Giraffe
-open Routing
+open WebApp
 open ErrorHandlers
 
 // ---------------------------------
