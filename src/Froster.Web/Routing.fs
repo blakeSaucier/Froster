@@ -8,5 +8,5 @@ let webApp: HttpFunc -> HttpFunc =
     choose [
         indexRoutes
         playerRoutes
-        setStatusCode 404 >=> text "Not Found" 
+        setStatusCode 404 >=> text "Not Found"
     ]
