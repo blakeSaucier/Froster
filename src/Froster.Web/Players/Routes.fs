@@ -2,14 +2,13 @@
 
 open Giraffe
 open Players.Handlers
-open Froster.Application.Players.Requests
 
 let playerRoutes: HttpFunc -> HttpFunc =
     choose [
         GET >=>
             choose [
-                route "/players" >=> json playersHandler
+                route "/players" >=> playersHandler
                 routef "/players/%i" playerHandler
             ]
-        POST >=> route "/players" >=> bindModel<CreatePlayerCommand> None submitPlayer
+        POST >=> route "/players" >=> submitPlayer
     ]

@@ -2,17 +2,25 @@
 
 open Giraffe
 open Bootstrap
+open Microsoft.AspNetCore.Http
+open FSharp.Control.Tasks.V2
+open Froster.Application.Players.Requests
 
-let playersHandler = getPlayers
+let playersHandler: HttpHandler = json getPlayers
 
-let playerHandler id =
-    let player = getPlayer id
+let playerHandler playerId =
+    let player = getPlayer playerId
     match player with
     | Some p -> json p
     | None -> RequestErrors.notFound (json None)
 
-let submitPlayer createPlayerCommand =
-    let result = createPlayer createPlayerCommand
-    match result with 
-    | Ok _ -> Successful.OK ()
-    | Error e -> RequestErrors.BAD_REQUEST e
+let submitPlayer =
+    fun (next: HttpFunc) (ctx: HttpContext) ->
+        task {
+            let! createPlayerCommand = ctx.BindModelAsync<CreatePlayerCommand>()
+            let result = createPlayer createPlayerCommand
+            return!
+                (match result with
+                | Ok _ -> Successful.OK () next ctx
+                | Error e -> RequestErrors.BAD_REQUEST e next ctx)
+        }
