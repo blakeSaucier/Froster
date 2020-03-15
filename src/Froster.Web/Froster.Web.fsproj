@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <DebugType>portable</DebugType>
     <AssemblyName>Froster.Web</AssemblyName>
     <OutputType>Exe</OutputType>
@@ -10,8 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="FSharp.Data" Version="3.3.3" />
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Giraffe" Version="3.4.*" />
+    <PackageReference Include="Giraffe" Version="4.0.1" />
     <PackageReference Include="TaskBuilder.fs" Version="2.1.*" />
   </ItemGroup>
 
